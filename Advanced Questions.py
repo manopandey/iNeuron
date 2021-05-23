@@ -45,22 +45,19 @@ def pairs(array):
 
 
 def count_lone_ones(number):
-    number_list=[int(d) for d in str(number)]       #convert number into a list
-    count =0
+    number_list=[int(d) for d in str(number)]
+    temp_index = []
+
     try:
-        for idx,num in enumerate(number_list):      #loop the list with access to value and index
+        for idx,num in enumerate(number_list):      
             if number_list[idx]==1 and number_list[idx+1]==1 :
-                pass
-            elif number_list[idx]==1 and number_list[idx-1]==1 and idx>0:
-                pass
-            else:
-                count+=1
-
-                
-
+                temp_index.extend([idx,idx+1])
     except:
         pass
     finally:
-        print(count)
+        for i in set(temp_index):
+            number_list[i] = 2
+    print(number_list.count(1))
+ 
 
-count_lone_ones(1110111)
+count_lone_ones(1)
